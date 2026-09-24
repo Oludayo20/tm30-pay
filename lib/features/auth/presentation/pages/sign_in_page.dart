@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/widgets/app_text_field.dart';
-import '../../../../core/widgets/button_progress.dart';
-import '../../../../core/widgets/responsive.dart';
-import '../../domain/auth_repository.dart';
-import '../bloc/sign_in/sign_in_bloc.dart';
-import '../validation_messages.dart';
+import 'package:tm30_pay/core/widgets/app_text_field.dart';
+import 'package:tm30_pay/core/widgets/button_progress.dart';
+import 'package:tm30_pay/core/widgets/responsive.dart';
+import 'package:tm30_pay/features/auth/domain/auth_repository.dart';
+import 'package:tm30_pay/features/auth/presentation/bloc/sign_in/sign_in_bloc.dart';
+import 'package:tm30_pay/features/auth/presentation/validation_messages.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});

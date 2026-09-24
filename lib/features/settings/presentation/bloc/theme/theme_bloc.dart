@@ -3,9 +3,8 @@ import 'dart:developer' as developer;
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
-
-import '../../../domain/settings_repository.dart';
-import '../../../domain/theme_preference.dart';
+import 'package:tm30_pay/features/settings/domain/settings_repository.dart';
+import 'package:tm30_pay/features/settings/domain/theme_preference.dart';
 
 part 'theme_event.dart';
 part 'theme_state.dart';

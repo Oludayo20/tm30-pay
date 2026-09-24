@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-
-import '../../../../core/utils/money.dart';
-import '../../../../core/widgets/copy_to_clipboard.dart';
-import '../../../../core/widgets/responsive.dart';
-import '../../../auth/domain/auth_user.dart';
-import '../../../auth/presentation/bloc/auth/auth_bloc.dart';
-import '../../../auth/presentation/widgets/sign_out_dialog.dart';
-import '../../../auth/presentation/widgets/user_avatar.dart';
-import '../../../transfer/domain/transfer_validators.dart';
-import '../../domain/theme_preference.dart';
-import '../bloc/theme/theme_bloc.dart';
-import '../theme_preference_ui.dart';
-import '../widgets/settings_section.dart';
+import 'package:tm30_pay/core/utils/money.dart';
+import 'package:tm30_pay/core/widgets/copy_to_clipboard.dart';
+import 'package:tm30_pay/core/widgets/responsive.dart';
+import 'package:tm30_pay/features/auth/domain/auth_user.dart';
+import 'package:tm30_pay/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:tm30_pay/features/auth/presentation/widgets/sign_out_dialog.dart';
+import 'package:tm30_pay/features/auth/presentation/widgets/user_avatar.dart';
+import 'package:tm30_pay/features/settings/domain/theme_preference.dart';
+import 'package:tm30_pay/features/settings/presentation/bloc/theme/theme_bloc.dart';
+import 'package:tm30_pay/features/settings/presentation/theme_preference_ui.dart';
+import 'package:tm30_pay/features/settings/presentation/widgets/settings_section.dart';
+import 'package:tm30_pay/features/transfer/domain/transfer_validators.dart';
 
 /// Profile, account details, what wallet data is on the device, appearance
 /// and sign-out. It only reads existing blocs; nothing here needs its own.
