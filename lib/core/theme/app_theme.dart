@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'brand.dart';
+
 abstract final class AppTheme {
-  static const Color tm30Blue = Color(0xFF0B5FFF);
+  static const Color tm30Blue = BrandColors.blue;
 
   static ThemeData light() => _build(Brightness.light);
   static ThemeData dark() => _build(Brightness.dark);
@@ -24,6 +26,7 @@ abstract final class AppTheme {
 
     return ThemeData(
       useMaterial3: true,
+      fontFamily: kBrandFontFamily,
       colorScheme: colorScheme,
       extensions: [
         brightness == Brightness.light ? StatusColors.light : StatusColors.dark,

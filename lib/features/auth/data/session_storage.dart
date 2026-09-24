@@ -30,6 +30,9 @@ class SessionStorage {
           fullName: user['fullName']! as String,
           walletAccountNumber: user['walletAccountNumber']! as String,
           memberSince: DateTime.parse(user['memberSince']! as String),
+          // Absent in sessions saved before sign-up existed.
+          username: user['username'] as String?,
+          photoPath: user['photoPath'] as String?,
         ),
       );
     } catch (_) {
@@ -52,6 +55,8 @@ class SessionStorage {
         'fullName': session.user.fullName,
         'walletAccountNumber': session.user.walletAccountNumber,
         'memberSince': session.user.memberSince.toIso8601String(),
+        'username': session.user.username,
+        'photoPath': session.user.photoPath,
       },
     }),
   );

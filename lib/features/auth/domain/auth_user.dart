@@ -7,6 +7,8 @@ class AuthUser extends Equatable {
     required this.fullName,
     required this.walletAccountNumber,
     required this.memberSince,
+    this.username,
+    this.photoPath,
   });
 
   final String email;
@@ -15,6 +17,12 @@ class AuthUser extends Equatable {
   /// The 10-digit number other people send money to.
   final String walletAccountNumber;
   final DateTime memberSince;
+
+  /// Chosen at sign-up. Null for accounts that only ever signed in.
+  final String? username;
+
+  /// A profile photo stored on this device, if the user added one.
+  final String? photoPath;
 
   String get firstName => fullName.split(' ').first;
 
@@ -28,11 +36,22 @@ class AuthUser extends Equatable {
     return letters.toUpperCase();
   }
 
+  AuthUser copyWith({String? photoPath}) => AuthUser(
+    email: email,
+    fullName: fullName,
+    walletAccountNumber: walletAccountNumber,
+    memberSince: memberSince,
+    username: username,
+    photoPath: photoPath ?? this.photoPath,
+  );
+
   @override
   List<Object?> get props => [
     email,
     fullName,
     walletAccountNumber,
     memberSince,
+    username,
+    photoPath,
   ];
 }

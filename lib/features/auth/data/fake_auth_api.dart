@@ -1,11 +1,16 @@
 import 'dart:math';
 
+import '../../../core/error/exceptions.dart';
 import '../../../core/utils/fake_latency.dart';
 import '../domain/auth_session.dart';
 import '../domain/auth_user.dart';
+import '../domain/sign_up_details.dart';
 
 /// Accepts any credentials that pass client-side validation and returns a
 /// made-up token pair and profile.
+///
+/// For sign-up it "sends" no SMS: any 4-digit code is accepted except
+/// [rejectedOtp], which lets you try the wrong-code state by hand.
 class FakeAuthApi {
   FakeAuthApi({this.latency = const FakeLatency(), Random? random})
     : _random = random ?? Random.secure();
@@ -28,6 +33,33 @@ class FakeAuthApi {
         fullName: nameFromEmail(email),
         walletAccountNumber: accountNumberFromEmail(email),
         memberSince: DateTime(2024, 3, 12),
+      ),
+    );
+  }
+
+  static const rejectedOtp = '0000';
+
+  Future<void> requestOtp({required String phone}) => latency();
+
+  Future<void> verifyOtp({required String phone, required String code}) async {
+    await latency();
+    if (code == rejectedOtp) throw const InvalidOtpException();
+  }
+
+  Future<AuthSession> signUp(SignUpDetails details) async {
+    await latency();
+    final now = DateTime.now();
+    return AuthSession(
+      accessToken: 'fake-access-${_token()}',
+      refreshToken: 'fake-refresh-${_token()}',
+      expiresAt: now.add(const Duration(hours: 1)),
+      user: AuthUser(
+        email: details.email,
+        fullName: '${details.firstName} ${details.lastName}',
+        walletAccountNumber: accountNumberFromEmail(details.email),
+        memberSince: DateTime(now.year, now.month, now.day),
+        username: details.username,
+        photoPath: details.photoPath,
       ),
     );
   }

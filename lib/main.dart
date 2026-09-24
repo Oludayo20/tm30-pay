@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app/app.dart';
 import 'features/auth/data/auth_repository_impl.dart';
 import 'features/auth/data/fake_auth_api.dart';
+import 'features/auth/data/profile_photo_store.dart';
 import 'features/auth/data/session_storage.dart';
 import 'features/settings/data/settings_repository_impl.dart';
 import 'features/wallet/data/fake_wallet_api.dart';
@@ -19,6 +20,7 @@ Future<void> main() async {
   final authRepository = AuthRepositoryImpl(
     api: FakeAuthApi(),
     storage: SessionStorage(),
+    photos: ProfilePhotoStore(),
   );
   final walletRepository = WalletRepositoryImpl(
     api: FakeWalletApi(),

@@ -15,6 +15,7 @@ Future<Result<T>> guard<T>(Future<T> Function() body) async {
       InsufficientFundsException() => const InsufficientFundsFailure(),
       NotFoundException() => const NotFoundFailure(),
       UnauthorizedException() => const InvalidCredentialsFailure(),
+      InvalidOtpException() => const InvalidOtpFailure(),
     });
   } catch (e, st) {
     // In production this would go to Crashlytics or Sentry.

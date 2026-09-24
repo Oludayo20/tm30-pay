@@ -1,5 +1,6 @@
 import '../../../core/error/result.dart';
 import 'auth_user.dart';
+import 'sign_up_details.dart';
 
 abstract interface class AuthRepository {
   /// The signed-in user saved in secure storage, or null if nobody is signed
@@ -14,6 +15,17 @@ abstract interface class AuthRepository {
     required String email,
     required String password,
   });
+
+  /// Sends a one-time code by SMS to [phone].
+  Future<Result<void>> requestOtp({required String phone});
+
+  /// Checks the code the user typed. Fails with InvalidOtpFailure when it
+  /// doesn't match.
+  Future<Result<void>> verifyOtp({required String phone, required String code});
+
+  /// Creates the account and signs the new user in. Like [signIn], success
+  /// is announced on [userChanges], which moves the router to the wallet.
+  Future<Result<void>> signUp(SignUpDetails details);
 
   Future<void> signOut();
 }

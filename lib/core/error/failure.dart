@@ -38,6 +38,12 @@ final class InvalidCredentialsFailure extends Failure {
   ]);
 }
 
+final class InvalidOtpFailure extends Failure {
+  const InvalidOtpFailure([
+    super.message = 'That code isn’t right. Check the SMS and try again.',
+  ]);
+}
+
 /// Anything we did not expect. Log it and show a generic message.
 final class UnexpectedFailure extends Failure {
   const UnexpectedFailure([

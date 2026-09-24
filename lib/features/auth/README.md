@@ -1,14 +1,16 @@
 # features/auth/
 
-Sign in, keeping the session across launches, the signed-in user's profile, and sign out.
+Onboarding (splash, welcome, sign in, sign up with phone verification and profile), keeping the session across launches, the signed-in user's profile, and sign out.
 
 | Folder | Purpose |
 |---|---|
 | `domain/` | `AuthRepository` interface, `AuthUser`, `AuthSession` and credential validators. |
 | `data/` | Fake auth API, secure-storage session persistence and the repository implementation. |
-| `presentation/` | `AuthBloc` (app-wide session), `SignInBloc` (form), sign-in page, avatar and sign-out dialog. |
+| `presentation/` | `AuthBloc` (app-wide session), `SignInBloc` (form), `SignUpBloc` (the whole sign-up flow), the onboarding pages, avatar and sign-out dialog. |
 
-> There is no sign-up screen. The assessment only asks for sign-in: any valid email with a password of 8 or more characters is accepted, and the fake backend creates the profile on the spot.
+> The fake backend accepts any valid email with a password of 8 or more characters. At sign-up it sends no SMS: any 4-digit code works except `0000`, which shows the wrong-code state.
+>
+> Sign-up follows the same navigation rule as sign-in: `SignUpBloc` moves between its own steps (`/sign-up` → `/phone` → `/verify` → `/profile`), and after the last one the repository announces the new user and the router redirects to the wallet. `SignUpBloc` lives in the auth `ShellRoute`, so it is disposed, along with the password and code, as soon as the user is signed in.
 
 ---
 

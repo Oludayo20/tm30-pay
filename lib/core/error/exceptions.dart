@@ -24,3 +24,8 @@ final class NotFoundException extends DataException {
 final class UnauthorizedException extends DataException {
   const UnauthorizedException([super.message]);
 }
+
+/// The one-time code the user entered doesn't match the one sent.
+final class InvalidOtpException extends DataException {
+  const InvalidOtpException([super.message]);
+}

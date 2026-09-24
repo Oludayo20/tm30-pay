@@ -2,9 +2,15 @@
 
 | File | What it does |
 |---|---|
+| `splash_page.dart` | The logo at launch. Decodes the welcome artwork, then asks for `/` and lets the redirect decide. |
+| `welcome_page.dart` | The brand header with Sign In and Sign up. |
 | `sign_in_page.dart` | `SignInPage` provides a `SignInBloc`; `SignInView` renders the email and password fields (autofill, show/hide password), inline errors and a Sign in button with a spinner, and shows failures in a snackbar. |
+| `sign_up_page.dart` | Sign-up step 1: email and password. |
+| `phone_number_page.dart` | Step 2: the mobile number the code is sent to. |
+| `verify_otp_page.dart` | Step 3: the 4-digit code, with a resend cooldown. |
+| `complete_profile_page.dart` | Step 4: photo, username, names and date of birth. |
 
-(There is no sign-up page. The assessment only requires sign-in.)
+The welcome, sign-in and sign-up screens share one `AuthHeader` Hero, which morphs the welcome composition into the compact form header.
 
 ## How the sign-in page gets you to the home page
 
