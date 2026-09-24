@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/error/failure.dart';
-import '../../../../core/widgets/responsive.dart';
-import '../../../../core/widgets/state_views.dart';
-import '../../domain/transaction.dart';
-import '../../domain/wallet_repository.dart';
-import '../bloc/transaction_detail/transaction_detail_bloc.dart';
-import '../bloc/wallet/wallet_bloc.dart';
-import '../widgets/status_chip.dart';
-import '../widgets/transaction_formatting.dart';
+import 'package:tm30_pay/core/error/failure.dart';
+import 'package:tm30_pay/core/widgets/responsive.dart';
+import 'package:tm30_pay/core/widgets/state_views.dart';
+import 'package:tm30_pay/features/wallet/domain/transaction.dart';
+import 'package:tm30_pay/features/wallet/domain/wallet_repository.dart';
+import 'package:tm30_pay/features/wallet/presentation/bloc/transaction_detail/transaction_detail_bloc.dart';
+import 'package:tm30_pay/features/wallet/presentation/bloc/wallet/wallet_bloc.dart';
+import 'package:tm30_pay/features/wallet/presentation/widgets/status_chip.dart';
+import 'package:tm30_pay/features/wallet/presentation/widgets/transaction_formatting.dart';
 
 class TransactionDetailPage extends StatelessWidget {
   const TransactionDetailPage({

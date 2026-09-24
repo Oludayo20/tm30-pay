@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/widgets/copy_to_clipboard.dart';
-import '../../../auth/domain/auth_user.dart';
+import 'package:tm30_pay/core/widgets/copy_to_clipboard.dart';
+import 'package:tm30_pay/features/auth/domain/auth_user.dart';
 
 /// Shows the details someone needs to send money to this wallet.
 Future<void> showReceiveMoneySheet(BuildContext context, AuthUser user) {

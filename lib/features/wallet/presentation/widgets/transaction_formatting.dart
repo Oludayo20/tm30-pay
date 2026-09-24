@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../../../../core/theme/app_theme.dart';
-import '../../../../core/utils/money.dart';
-import '../../domain/transaction.dart';
+import 'package:tm30_pay/core/theme/app_theme.dart';
+import 'package:tm30_pay/core/utils/money.dart';
+import 'package:tm30_pay/features/wallet/domain/transaction.dart';
 
 // Display helpers shared by the list tile and the detail screen, so both
 // show a transaction the same way.
