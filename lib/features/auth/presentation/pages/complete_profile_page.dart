@@ -113,7 +113,7 @@ class _Form extends StatelessWidget {
               alignment: Alignment.topCenter,
               children: [
                 Positioned(
-                  left: -16,
+                  left: -10,
                   top: 4,
                   child: IconButton(
                     tooltip: 'Back',
